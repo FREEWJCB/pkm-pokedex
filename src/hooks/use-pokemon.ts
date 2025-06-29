@@ -118,7 +118,7 @@ export const usePokemon = () => {
         setPokemonList(allPokemon)
         setLoadingProgress({ current: allPokemon.length, total: totalPokemon })
       } catch (err) {
-        console.error("Error loading Pokemon data:", err)
+        console.error("Error  loading Pokemon data:", err)
         setError("Error loading Pokemon data. Please try again.")
       } finally {
         setLoading(false)
