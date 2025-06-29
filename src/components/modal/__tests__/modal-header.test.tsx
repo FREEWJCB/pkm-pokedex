@@ -14,6 +14,7 @@ describe("ModalHeader", () => {
   })
 
   it("renders pokemon information correctly", () => {
+    console.log('hola');
     render(<ModalHeader pokemon={mockPokemon} onClose={mockOnClose} isLegendary={false} />)
 
     expect(screen.getByText("bulbasaur")).toBeInTheDocument()
