@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: #2a2a2a;
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pokemon.com specific styles */
+.pokemon-header-bg {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.pokemon-main-bg {
+  background: #2a2a2a;
+}
+
+.pokemon-card-shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure all interactive elements have pointer cursor */
+button,
+[role="button"],
+.cursor-pointer,
+select,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+[onclick] {
+  cursor: pointer !important;
+}
+
+/* Fix text rendering and contrast */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Ensure proper font fallbacks */
+.font-sans {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Fix button and interactive element styling */
+button:hover,
+[role="button"]:hover {
+  cursor: pointer !important;
+}
+
+/* Ensure proper clickable areas */
+.clickable-area {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* High contrast text shadows for better visibility */
+.text-shadow-strong {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.text-shadow-medium {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.text-shadow-light {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure white text is always visible */
+.text-white {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Remove tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Better focus states */
+button:focus,
+select:focus,
+input:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* RESPONSIVE MODAL IMPROVEMENTS */
+@media (max-width: 640px) {
+  /* Mobile optimizations */
+  .modal-content {
+    padding: 0.75rem;
+  }
+
+  .modal-header {
+    padding: 0.75rem;
+  }
+
+  .modal-tabs {
+    padding: 0.5rem 0;
+  }
+
+  /* Ensure text is readable on small screens */
+  .text-responsive {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Tablet optimizations */
+  .modal-content {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Desktop optimizations */
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Smooth scrolling for modal content */
+.modal-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 640px) {
+  button,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
