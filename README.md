@@ -25,7 +25,7 @@ A modern, responsive Pokémon encyclopedia built with Next.js, TypeScript, and T
 
 1. **Clone the repository**
    \`\`\`bash
-   git clone https://github.com/your-username/pokemon-knowledge-manager.git
+   git clone https://github.com/FREEWJCB/pkm-pokedex.git
    cd pokemon-knowledge-manager
    \`\`\`
 
