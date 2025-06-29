@@ -37,7 +37,7 @@ export const ModalHeader = ({ pokemon, onClose, isLegendary }: ModalHeaderProps)
         />
       )}
 
-      {/* Close button - FIXED RESPONSIVE */}
+      {/* Close button */}
       <motion.button
         onClick={onClose}
         className="absolute top-3 right-3 sm:top-4 sm:right-4 lg:top-6 lg:right-6 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center text-white hover:bg-black hover:bg-opacity-20 rounded-full transition-all duration-200 z-20 group"
@@ -49,7 +49,6 @@ export const ModalHeader = ({ pokemon, onClose, isLegendary }: ModalHeaderProps)
         }}
         aria-label="Close modal"
       >
-        {/* X Icon - Responsive size */}
         <svg
           className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white drop-shadow-lg"
           fill="none"
@@ -60,15 +59,14 @@ export const ModalHeader = ({ pokemon, onClose, isLegendary }: ModalHeaderProps)
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
 
-        {/* Tooltip - Hidden on mobile */}
         <div className="hidden lg:block absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-90 text-white text-xs px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
           Close
         </div>
       </motion.button>
 
-      {/* FIXED RESPONSIVE LAYOUT */}
+      {/* Main content layout */}
       <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 lg:gap-8 pr-16 sm:pr-20 lg:pr-24 relative z-10">
-        {/* Pokemon Image - Responsive */}
+        {/* Pokemon Image */}
         <motion.div
           className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 xl:w-40 xl:h-40 flex-shrink-0 cursor-pointer"
           initial={{ scale: 0, rotate: -180 }}
@@ -93,7 +91,7 @@ export const ModalHeader = ({ pokemon, onClose, isLegendary }: ModalHeaderProps)
             className="object-contain drop-shadow-lg"
           />
 
-          {/* Legendary sparkles - Responsive */}
+          {/* Legendary sparkles */}
           {isLegendary && (
             <>
               {Array.from({ length: 6 }, (_, i) => (
@@ -118,7 +116,7 @@ export const ModalHeader = ({ pokemon, onClose, isLegendary }: ModalHeaderProps)
           )}
         </motion.div>
 
-        {/* Pokemon Info - Responsive */}
+        {/* Pokemon Info */}
         <div className="flex-1 text-center sm:text-left">
           <motion.div
             className="text-sm sm:text-base lg:text-lg mb-2 sm:mb-3 font-medium"
@@ -143,7 +141,7 @@ export const ModalHeader = ({ pokemon, onClose, isLegendary }: ModalHeaderProps)
             )}
           </motion.div>
 
-          {/* Name and Types - Responsive */}
+          {/* Name and Types */}
           <motion.div
             className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6"
             initial={{ opacity: 0, x: -20 }}
@@ -182,9 +180,9 @@ export const ModalHeader = ({ pokemon, onClose, isLegendary }: ModalHeaderProps)
             </div>
           </motion.div>
 
-          {/* Basic Stats Grid - Responsive */}
+          {/* Basic Stats Grid - SINGLE ROW ON MOBILE */}
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4 text-center"
+            className="grid grid-cols-4 gap-1 sm:gap-2 lg:gap-4 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
@@ -218,24 +216,24 @@ export const ModalHeader = ({ pokemon, onClose, isLegendary }: ModalHeaderProps)
             ].map((item, index) => (
               <motion.div
                 key={item.label}
-                className="bg-black bg-opacity-20 rounded-lg p-2 sm:p-3 lg:p-4 backdrop-blur-sm cursor-pointer hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-20"
+                className="bg-black bg-opacity-20 rounded-lg p-1.5 sm:p-2 lg:p-4 backdrop-blur-sm cursor-pointer hover:bg-opacity-30 transition-all duration-200 border border-white border-opacity-20 min-h-[60px] sm:min-h-[70px] lg:min-h-[80px] flex flex-col justify-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 + index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
               >
                 <div
-                  className="text-xs sm:text-sm mb-1 font-medium"
+                  className="text-xs mb-1 font-medium"
                   style={{
                     color: "rgba(255, 255, 255, 0.9)",
                     textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
                   }}
                 >
-                  <span className="mr-1 text-sm sm:text-base">{item.icon}</span>
-                  <span className="hidden sm:inline">{item.label}</span>
+                  <span className="text-sm">{item.icon}</span>
+                  <div className="hidden sm:block text-xs mt-1">{item.label}</div>
                 </div>
                 <div
-                  className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold"
+                  className="text-xs sm:text-sm lg:text-base font-bold"
                   style={{
                     color: "white",
                     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
