@@ -1,3 +1,4 @@
+import type React from "react"
 import "@testing-library/jest-dom"
 import { vi } from "vitest"
 import { createElement } from "react"
@@ -5,21 +6,21 @@ import { createElement } from "react"
 // Mock framer-motion
 vi.mock("framer-motion", () => ({
   motion: {
-    div: (props: any) => createElement("div", props),
-    button: (props: any) => createElement("button", props),
-    span: (props: any) => createElement("span", props),
-    h1: (props: any) => createElement("h1", props),
-    h2: (props: any) => createElement("h2", props),
-    h3: (props: any) => createElement("h3", props),
-    h4: (props: any) => createElement("h4", props),
-    p: (props: any) => createElement("p", props),
+    div: (props: React.ComponentProps<"div">) => createElement("div", props),
+    button: (props: React.ComponentProps<"button">) => createElement("button", props),
+    span: (props: React.ComponentProps<"span">) => createElement("span", props),
+    h1: (props: React.ComponentProps<"h1">) => createElement("h1", props),
+    h2: (props: React.ComponentProps<"h2">) => createElement("h2", props),
+    h3: (props: React.ComponentProps<"h3">) => createElement("h3", props),
+    h4: (props: React.ComponentProps<"h4">) => createElement("h4", props),
+    p: (props: React.ComponentProps<"p">) => createElement("p", props),
   },
-  AnimatePresence: ({ children }: { children: any }) => children,
+  AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
 }))
 
 // Mock Next.js Image component
 vi.mock("next/image", () => ({
-  default: (props: any) =>
+  default: (props: React.ComponentProps<"img">) =>
     createElement("img", {
       ...props,
       src: props.src || "/placeholder.svg",

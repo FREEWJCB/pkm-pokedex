@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { unstable_cache } from "next/cache"
 import type { Pokemon } from "../types/pokemon"
 import type { PokemonAPI } from "../types/api/pokemon"
@@ -478,8 +477,8 @@ export const fetchRegionPokemon = async (
   const sortedPokemon = allPokemon.sort((a, b) => a.id - b.id)
   console.log(`🏁 Final result: ${sortedPokemon.length} Pokemon sorted by ID`)
 
-  // Cache the region as complete
-  pokemonMemoryCache.set(regionCacheKey, sortedPokemon as any)
+  // Cache the region as complete - using unknown type assertion for cache compatibility
+  pokemonMemoryCache.set(regionCacheKey, sortedPokemon as unknown as Pokemon)
 
   return sortedPokemon
 }

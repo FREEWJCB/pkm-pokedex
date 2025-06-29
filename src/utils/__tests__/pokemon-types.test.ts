@@ -54,14 +54,14 @@ describe("pokemon-types", () => {
     })
 
     it("returns default color for null/undefined input", () => {
-      expect(getTypeColor(null as any)).toBe("#68A090")
-      expect(getTypeColor(undefined as any)).toBe("#68A090")
+      expect(getTypeColor(null as unknown as string)).toBe("#68A090")
+      expect(getTypeColor(undefined as unknown as string)).toBe("#68A090")
     })
 
     it("handles non-string input", () => {
-      expect(getTypeColor(123 as any)).toBe("#68A090")
-      expect(getTypeColor({} as any)).toBe("#68A090")
-      expect(getTypeColor([] as any)).toBe("#68A090")
+      expect(getTypeColor(123 as unknown as string)).toBe("#68A090")
+      expect(getTypeColor({} as unknown as string)).toBe("#68A090")
+      expect(getTypeColor([] as unknown as string)).toBe("#68A090")
     })
   })
 })
