@@ -32,11 +32,6 @@ export const AbilitiesTab = ({ abilities, loading }: AbilitiesTabProps) => {
           >
             <div className="flex items-center gap-2 mb-2">
               <h4 className="font-semibold capitalize text-gray-800">{ability.name}</h4>
-              {ability.isHidden && (
-                <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-bold">
-                  Hidden Ability
-                </span>
-              )}
             </div>
             <div className="max-w-md">
               {loading && ability.description === "Loading description..." ? (

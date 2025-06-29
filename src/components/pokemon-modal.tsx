@@ -126,7 +126,15 @@ export const PokemonModal = ({ pokemon, isOpen, onClose }: PokemonModalProps) =>
 
             {/* TABS - Fixed height */}
             <div className="flex-shrink-0">
-              <ModalTabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
+              <ModalTabs
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabChange={(tabId) =>
+                  setActiveTab(
+                    tabId as "stats" | "abilities" | "moves" | "evolution" | "effectiveness" | "gameinfo"
+                  )
+                }
+              />
             </div>
 
             {/* CONTENT - Flexible with scroll */}
